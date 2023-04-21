@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{b0cd56f1-6c16-4f55-8c45-254d9664324d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OG_CODE_REF">
+      <UniqueIdentifier>{49dccd3e-848f-4bb6-82cc-b9a928790b44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug\Header Files">
+      <UniqueIdentifier>{82897762-a296-40ad-8f5e-13b7d6b5c48e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug\Source Files">
+      <UniqueIdentifier>{8066cb96-e689-4682-a51b-5d8f67da88a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test_sdl_window.cpp">
+      <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test_gamecore.cpp">
+      <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test_gamecore_debug.cpp">
+      <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test_sdl_inputhandler.cpp">
+      <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test_sprite_exp.cpp">
+      <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test_animatedsprite.cpp">
+      <Filter>Debug\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test_gamecore.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test_sdl_window.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test_gamecore_debug.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test_sdl_inputhandler.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test_sprite_exp.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test_animatedsprite.h">
+      <Filter>Debug\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

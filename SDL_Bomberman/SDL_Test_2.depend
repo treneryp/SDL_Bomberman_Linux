@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1680736881 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_gamecore.cpp
+	"test_gamecore.h"
+
+1680736881 /home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_gamecore.h
+
+1680736881 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_sdl_inputhandler.cpp
+	"test_sdl_inputhandler.h"
+	<iostream>
+	<string.h>
+
+1680736881 /home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_sdl_inputhandler.h
+	<string>
+	<map>
+
+1680736881 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_sprite_inhe.cpp
+
+1680917881 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/main.cpp
+	<iostream>
+	"test_gamecore_debug.h"
+
+1681786330 /home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_gamecore_debug.h
+	"test_gamecore.h"
+	"SDL2/SDL.h"
+	"test_sprite_exp.h"
+	"test_animatedsprite.h"
+	<vector>
+	"test_sdl_inputhandler.h"
+	"test_tilemap.h"
+
+1681790036 /home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_sprite_exp.h
+	<SDL2/SDL_image.h>
+	"test_sdl_inputhandler.h"
+	<string>
+
+1680736881 /home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_animatedsprite.h
+	"test_sprite_exp.h"
+	<vector>
+
+1681176677 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_animatedsprite.cpp
+	"test_animatedsprite.h"
+	<array>
+	"iostream"
+
+1681790706 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_sprite_exp.cpp
+	"test_sprite_exp.h"
+	<map>
+	<iostream>
+
+1681793220 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_gamecore_debug.cpp
+	"test_gamecore_debug.h"
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	<iostream>
+	"test_sprite_exp.h"
+	"test_animatedsprite.h"
+	"test_tilemap.h"
+	<string>
+	<sstream>
+
+1681176622 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_sdl_window.cpp
+	<iostream>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	"test_sdl_window.h"
+	"test_sprite_exp.h"
+
+1680736881 /home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_sdl_window.h
+
+1681604964 source:/home/patrick/Desktop/C++/SDL_Bomberman/src/test_VecMath.cpp
+	"test_VecMath.h"
+
+1681604914 /home/patrick/Desktop/C++/SDL_Bomberman/include/test_VecMath.h
+
+1681783482 source:/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_tilemap.cpp
+	"test_tilemap.h"
+
+1681784071 /home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Project1/test_tilemap.h
+	"test_sprite_exp.h"
+	<vector>
+
