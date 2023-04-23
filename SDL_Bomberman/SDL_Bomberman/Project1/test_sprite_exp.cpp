@@ -77,7 +77,7 @@ void test_sprite_exp::UpdateSprite()
 
     MoveSpriteXY(GLOBAL::velx,GLOBAL::vely);
 
-    OnCollision();
+
 
 }
 
@@ -100,6 +100,7 @@ void test_sprite_exp::Testingupdate(const char* keyvalue, bool ispressed)
 
     GLOBAL::velx = 0;
     GLOBAL::vely = 0;
+
 	for (auto x : InputHandler.getButtonMap())
 	{
 		//std::cout << x.first << " " << x.second << std::endl;
@@ -133,6 +134,22 @@ void test_sprite_exp::Testingupdate(const char* keyvalue, bool ispressed)
 		else if(std::string(x.first) == "Space" && x.second == 0)
 		{
             GLOBAL::SPEED = 2;
+		}
+
+        if(std::string(x.first) == "F" && x.second ==1)
+		{
+            std::cout << "PRESSED F " << std::endl;
+            pressedf = true;
+
+
+
+		}
+        else if(std::string(x.first) == "F" && x.second == 0)
+		{
+            std::cout << "PRESSED F " << std::endl;
+
+           pressedf = false;
+
 		}
 		//UpdateSprite();
 
@@ -177,12 +194,15 @@ SDL_bool test_sprite_exp::DetectCollision(SDL_Rect& touched_obstacle)
         {
             std::cout << "touching the left sided. " << std::endl;
             MoveSpriteXY(-tex_rec.w/10,0);
+
+
         }
 
         if(rightA >= rightB)
         {
             std::cout << "touching the right sided. " << std::endl;
             MoveSpriteXY(tex_rec.w/10,0);
+
         }
 
 
@@ -190,6 +210,8 @@ SDL_bool test_sprite_exp::DetectCollision(SDL_Rect& touched_obstacle)
         {
             std::cout << "touching the btm sided. " << std::endl;
             MoveSpriteXY(0,tex_rec.h/10);
+
+
         }
 
         if(topA <= topB)
@@ -208,16 +230,27 @@ SDL_bool test_sprite_exp::DetectCollision(SDL_Rect& touched_obstacle)
 
 }
 
-void test_sprite_exp::OnCollision()
+bool test_sprite_exp::OnCollision(test_sprite_exp touched_collectable)
 {
-    if(HasCollided)
-    {
+    //if collision is blueorb delete sprite from vector
+    SDL_bool Collsion = SDL_HasIntersection(GetHitBox(), touched_collectable.GetHitBox());
+    if (Collsion)
+	{
+        return true;
 
-    }
+	}
+	else
+	{
+        return false;
+	}
+
+
+
 }
 
 void test_sprite_exp::outputbuttons()
 {
+
 
 
 
@@ -226,3 +259,15 @@ void test_sprite_exp::outputbuttons()
 
 }
 
+
+
+test_sprite_exp::~test_sprite_exp()
+{
+    //SDL_DestroyTexture(spritetex);
+    //delete this;
+
+}
+bool test_sprite_exp::Testing_SpriteSpawn()
+{
+    return pressedf;
+}

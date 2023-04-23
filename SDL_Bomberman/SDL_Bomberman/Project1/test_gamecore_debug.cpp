@@ -188,8 +188,41 @@ void test_gamecore_debug::Init()
 	TilemapA.tilemap.push_back(tiles2);
 
 
+    std::vector<test_sprite_exp> tiles4;
+    block = "/tiles/Blocks/blueOrb.png";
+    fullpath = assetpath + block;
 
+    tex_rec.x =172;
+    tex_rec.y =64;
 
+    for(int i = 0; i <= 5; i++)
+    {
+        //tiles4.push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
+        Collectables.insert_or_assign(i,test_sprite_exp(renderer,fullpath.c_str(),tex_rec,src_rec));
+        tex_rec.x += 98;
+        //tex_rec.y += 64;
+        Collectables[i].spritenum = i;
+
+    }
+
+    block = "/tiles/Blocks/coin.png";
+    fullpath = assetpath + block;
+
+    tex_rec.x =200;
+    tex_rec.y =128;
+
+    for(int i = 5; i <= 10; i++)
+    {
+        cout << fullpath.c_str() << endl;
+        //tiles4.push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
+        Collectables.insert_or_assign(i,test_sprite_exp(renderer,fullpath.c_str(),tex_rec,src_rec));
+        tex_rec.x += 98;
+        //tex_rec.y += 64;
+        Collectables[i].spritenum = i;
+
+    }
+
+    //TilemapB.tilemap.push_back(tiles4);
 	//if (SDL_IsGameController(0))
 	//{
 	//	SDL_GameController* pad = SDL_GameControllerOpen(0);
@@ -278,6 +311,9 @@ void test_gamecore_debug::Update()
 				case SDLK_SPACE:
 					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_SPACE), true);
 					break;
+				case SDLK_f:
+					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_f), true);
+					break;
 				}
 				break;
 			case SDL_KEYUP:
@@ -297,6 +333,9 @@ void test_gamecore_debug::Update()
 					break;
 				case SDLK_SPACE:
 					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_SPACE), false);
+					break;
+				case SDLK_f:
+					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_f), false);
 					break;
 				}
 				break;
@@ -441,7 +480,7 @@ void test_gamecore_debug::Draw()
 //
 //
 //	SDL_RenderFillRect(renderer, &lBrd);
-
+    vector< pair<int,test_sprite_exp> > objtoremove;
     for(const SDL_Rect  brd : testborders)
     {
         //dSDL_RenderFillRect(renderer, &brd);
@@ -458,18 +497,45 @@ void test_gamecore_debug::Draw()
         }
     }
 
-//    for( SDL_Rect  brd : testborders)
-//    {
-//
-//	  spritesToRender[0].DetectCollision(brd);
-//
-//    }
-//    for( std::vector<test_sprite_exp> t : TilemapA.tilemap)
-//    {
-//
-//
-//    }
+    for(auto&  ts : Collectables)
+    {
+     //  std:: cout << ts.first << endl;
+      ts.second.DrawSprite(renderer);
+     //ts.spritenum = i;
+     //++i;
+     if(spritesToRender[0].DetectCollision(*ts.second.GetHitBox()))
+     {
 
+        objtoremove.push_back(ts);
+        cout << ts.first << endl;
+        //cout << objtoremove[0].first << endl;
+
+     }
+     //cout <<  ts.second.spritenum << endl;
+
+     for(auto o : objtoremove)
+     {
+        if( !objtoremove.empty())
+        {
+            //Removal works but sometimes causes crashes, most likely trying to remove something too fast.
+            Collectables.erase(o.first);
+            objtoremove.pop_back();
+            std::cout << objtoremove.size()<< endl;
+
+        }
+     }
+
+    }
+
+
+    if(spritesToRender[0].Testing_SpriteSpawn())
+    {
+        //cout << "F received " << endl;
+        std::string fullpath = "/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Assets/tiles/Blocks/heart.png";
+        TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
+        cout << fullpath.c_str() << endl;
+        tex_rec.x += 60;
+    }
 
 
 	SDL_RenderDrawRect(renderer, spritesToRender[0].GetHitBox());

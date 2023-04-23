@@ -81,7 +81,7 @@ void test_animatedsprite::UpdateSpriteFrame()
 
 				src_rec.x = AnimationMap[curr_animationset][GLOBAL::frame].first;
 				src_rec.y = AnimationMap[curr_animationset][GLOBAL::frame].second;
-				std::cout << GLOBAL::time << std::endl;
+				//std::cout << GLOBAL::time << std::endl;
 
 			}
 

@@ -7,6 +7,7 @@
 #include <vector>
 #include "test_sdl_inputhandler.h"
 #include "test_tilemap.h"
+#include "unordered_map"
 
 #undef main
 class test_gamecore_debug : test_gamecore
@@ -35,6 +36,9 @@ private:
 	std::vector<test_animatedsprite> spritesToRender;
 
 	test_tilemap TilemapA;
+	test_tilemap TilemapB; //collectables;
+
+    std::unordered_map<int,test_sprite_exp> Collectables;
 
 	test_sdl_inputhandler InputHandler;
 

@@ -12,7 +12,7 @@ public:
 
 	test_sprite_exp(SDL_Renderer*& renderer,const char* filepathforsprite, SDL_Rect originRecTexture, SDL_Rect originRecSrc);
 	test_sprite_exp(){};
-	~test_sprite_exp() {};
+	~test_sprite_exp();
 
 
 	bool LoadSpriteFromSurface();
@@ -22,17 +22,20 @@ public:
 	void MoveSpriteXY(const int& x, const int& y);
 	void Testingupdate(const char* keyvalue, bool ispressed);
 	void UpdateSprite();
-
+	bool Testing_SpriteSpawn();
+    bool pressedf = false;
 	inline SDL_Rect* GetHitBox() { return &hitbox; }
 
 	SDL_bool DetectCollision(SDL_Rect& touched_obstacle);
-	void OnCollision();
+	bool OnCollision(test_sprite_exp touched_collectable);
 
 	void outputbuttons();
 
 	SDL_Rect tex_rec;
 	SDL_Rect hitbox;
 	SDL_Rect src_rec;
+
+	int spritenum =0;
 
 	test_sdl_inputhandler InputHandler;
 private:
