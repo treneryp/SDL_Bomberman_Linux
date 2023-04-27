@@ -21,10 +21,12 @@ test_sprite_exp::test_sprite_exp(SDL_Renderer*& renderer, const char* filepath,S
 	tex_rec.w = 64;
 	tex_rec.h = 64;
 
+	//need to remove these magic numbers
+
 	src_rec.x = originRecSrc.x;
 	src_rec.y = originRecSrc.y;
-	src_rec.w = 32;
-	src_rec.h = 32;
+	src_rec.w = originRecSrc.w;
+	src_rec.h = originRecSrc.h;
 
 	hitbox = tex_rec;
 }
@@ -143,12 +145,13 @@ void test_sprite_exp::Testingupdate(const char* keyvalue, bool ispressed)
 
 
 
-		}
-        else if(std::string(x.first) == "F" && x.second == 0)
-		{
-            std::cout << "PRESSED F " << std::endl;
 
-           pressedf = false;
+		}
+        else if(std::string(x.first) == "X" && x.second == 1)
+		{
+            std::cout << "PRESSED X " << std::endl;
+
+           pressedx = true;
 
 		}
 		//UpdateSprite();
@@ -270,4 +273,5 @@ test_sprite_exp::~test_sprite_exp()
 bool test_sprite_exp::Testing_SpriteSpawn()
 {
     return pressedf;
+
 }

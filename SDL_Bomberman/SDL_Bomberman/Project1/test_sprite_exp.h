@@ -24,6 +24,7 @@ public:
 	void UpdateSprite();
 	bool Testing_SpriteSpawn();
     bool pressedf = false;
+    bool pressedx = false;
 	inline SDL_Rect* GetHitBox() { return &hitbox; }
 
 	SDL_bool DetectCollision(SDL_Rect& touched_obstacle);

@@ -314,6 +314,9 @@ void test_gamecore_debug::Update()
 				case SDLK_f:
 					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_f), true);
 					break;
+				case SDLK_x:
+					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_x), true);
+					break;
 				}
 				break;
 			case SDL_KEYUP:
@@ -336,6 +339,9 @@ void test_gamecore_debug::Update()
 					break;
 				case SDLK_f:
 					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_f), false);
+					break;
+				case SDLK_x:
+					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_x), false);
 					break;
 				}
 				break;
@@ -419,6 +425,7 @@ void test_gamecore_debug::Update()
 		//spritesToRender[0].MoveSpriteXY(0, 0);
 		spritesToRender[0].UpdateSpriteFrame();
 		spritesToRender[0].UpdateSprite();
+
 		//spritesToRender[0].UpdateSpriteFrame();
 		//spritesToRender[0].Testingupdate(inputval,keyup);
 
@@ -528,13 +535,27 @@ void test_gamecore_debug::Draw()
     }
 
 
-    if(spritesToRender[0].Testing_SpriteSpawn())
+    if(spritesToRender[0].pressedf)
     {
         //cout << "F received " << endl;
-        std::string fullpath = "/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Assets/tiles/Blocks/heart.png";
-        TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
-        cout << fullpath.c_str() << endl;
-        tex_rec.x += 60;
+
+
+        std::string fullpath = "/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Assets/tiles/Blocks/Bomb4.png";
+        //TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
+        SDL_Rect testrec = {0,0,32,32};
+        SDL_Rect testrec2 = {0,0,16,16};
+
+        testrec = spritesToRender[0].tex_rec;
+        //tex_rec.x += 32;
+
+        //cout << tex_rec.x << endl;
+
+        spritesToRender.push_back(test_animatedsprite(renderer, fullpath.c_str(), testrec,testrec2 ));
+        spritesToRender[1].InitializeAnimations();
+
+        //cout << fullpath.c_str() << endl;
+
+        spritesToRender[0].pressedf = false;
     }
 
 
@@ -554,6 +575,37 @@ void test_gamecore_debug::Draw()
 
 
 	spritesToRender[0].DrawSprite(renderer);
+	cout << spritesToRender.size() << endl;
+	if(spritesToRender.size() >= 2 && &spritesToRender[1]!= NULL)
+	{
+
+        spritesToRender[1].DrawSprite(renderer);
+        spritesToRender[1].UpdateBombAni();
+
+        if(spritesToRender[0].pressedx)
+        {
+
+            std::string fullpath = "/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Assets/tiles/Blocks/Flame.png";
+            SDL_Rect arecforfire = {spritesToRender[1].tex_rec.x + 64,spritesToRender[1].tex_rec.y ,36,36};
+            TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
+            arecforfire = {spritesToRender[1].tex_rec.x,spritesToRender[1].tex_rec.y+64 ,36,36};
+            TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
+            arecforfire = {spritesToRender[1].tex_rec.x - 64,spritesToRender[1].tex_rec.y ,36,36};
+            TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
+            arecforfire = {spritesToRender[1].tex_rec.x,spritesToRender[1].tex_rec.y-64 ,36,36};
+            TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
+            //spritesToRender[1].tex_rec = {0,0,0,0};
+            //
+            //spritesToRender.push_back(test_animatedsprite(renderer, fullpath.c_str(), testrec,testrec2 ));
+            //spritesToRender[3].InitializeAnimations();
+            //spritesToRender[3].DrawSprite(renderer);
+        }
+
+
+
+    }
+
+
 
 	//spritesToRender[1].DrawSprite(renderer);
 

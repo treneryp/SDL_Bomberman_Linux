@@ -235,11 +235,149 @@ void test_animatedsprite::UpdateSpriteFrame()
 
 void test_animatedsprite::InitializeAnimations()
 {
-	AnimationMap.insert_or_assign("Down", animation_WalkingDown);
+    AnimationMap.insert_or_assign("Down", animation_WalkingDown);
 	AnimationMap.insert_or_assign("Right", animation_WalkingRight);
 	AnimationMap.insert_or_assign("Left", animation_WalkingLeft);
 	AnimationMap.insert_or_assign("Up", animation_WalkingUp);
 	AnimationMap.insert_or_assign("Idle", animation_idle);
+
+	AnimationMap.insert_or_assign("Bomb",animation_BombExplosion);
+
+    AnimationMap.insert_or_assign("Explosion",animation_Explosion);
+
+}
+
+void test_animatedsprite::UpdateExplodeAni()
+{
+
+           bool playanimation = true;
+
+            int timetoexplosion =0;
+
+            const char* curr_animationset = "Explosion";
+
+
+
+    		for (int i = 0; i < AnimationMap[curr_animationset].size(); i++)
+
+			if (GLOBAL::time > GLOBAL::frame_last_changed)
+			{
+
+				//std::cout << animation_WalkingDown[GLOBAL::frame].first << animation_WalkingDown[GLOBAL::frame].second << std::endl;
+				//std::cout << (std::end(animation_WalkingDown) - std::begin(animation_WalkingDown)) << std::endl;
+				GLOBAL::time = 0;
+                    if (GLOBAL::frame >= AnimationMap[curr_animationset].size() - 1)
+                    {
+                        GLOBAL::frame = 0;
+
+                         //std::cout << "KABOOM" << std::endl;
+                         //curr_animationset = "Explosion";
+                         //SDL_Delay(100);
+
+                    }
+                    else
+                    {
+                        GLOBAL::frame += 1;
+                        //timetoexplosion++;
+
+                    }
+
+
+				SDL_Rect testrec = {0,0,32,32};
+
+				//need to fix coords
+
+				tex_rec.h = 64;
+				tex_rec.w = 64;
+
+				//src_rec = testrec;
+				src_rec.x = AnimationMap[curr_animationset][GLOBAL::frame].first;
+				src_rec.y = AnimationMap[curr_animationset][GLOBAL::frame].second;
+
+
+				//SDL_Delay(1000);
+
+			}
+            GLOBAL::time++;
+            timetoexplosion++;
+
+
+//            if(GLOBAL::time > 10)
+//            {
+//                std::cout << "KABOOM" << std::endl;
+//                timetoexplosion = 0;
+//                SDL_Delay(1000);
+//            }
+
+
+
+
+
+
+}
+
+void test_animatedsprite::UpdateBombAni()
+{
+            bool playanimation = true;
+
+            int timetoexplosion =0;
+
+            const char* curr_animationset = "Bomb";
+
+    		for (int i = 0; i < AnimationMap[curr_animationset].size(); i++)
+
+			if (GLOBAL::time > GLOBAL::frame_last_changed)
+			{
+
+				//std::cout << animation_WalkingDown[GLOBAL::frame].first << animation_WalkingDown[GLOBAL::frame].second << std::endl;
+				//std::cout << (std::end(animation_WalkingDown) - std::begin(animation_WalkingDown)) << std::endl;
+				GLOBAL::time = 0;
+                    if (GLOBAL::frame >= AnimationMap[curr_animationset].size() - 1)
+                    {
+                        GLOBAL::frame = 0;
+
+                         std::cout << "KABOOM" << std::endl;
+                         UpdateExplodeAni();
+                         //curr_animationset = "Explosion";
+                         //SDL_Delay(100);
+
+                    }
+                    else
+                    {
+                        GLOBAL::frame += 1;
+                        //timetoexplosion++;
+
+                    }
+
+
+				SDL_Rect testrec = {0,0,32,32};
+
+				//need to fix coords
+
+				tex_rec.h = 64;
+				tex_rec.w = 64;
+
+				//src_rec = testrec;
+				src_rec.x = AnimationMap[curr_animationset][GLOBAL::frame].first;
+				src_rec.y = AnimationMap[curr_animationset][GLOBAL::frame].second;
+
+
+				//SDL_Delay(1000);
+
+			}
+            GLOBAL::time++;
+            timetoexplosion++;
+
+
+//            if(GLOBAL::time > 10)
+//            {
+//                std::cout << "KABOOM" << std::endl;
+//                timetoexplosion = 0;
+//                SDL_Delay(1000);
+//            }
+
+
+
 
 
 }
