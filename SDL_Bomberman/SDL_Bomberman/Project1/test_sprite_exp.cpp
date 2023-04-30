@@ -44,7 +44,7 @@ bool test_sprite_exp::CreateSpriteTextureFromSurface()
 void test_sprite_exp::DrawSprite(SDL_Renderer*& renderer)
 {
 
-    SDL_RenderCopyEx(renderer, spritetex, &src_rec, &tex_rec, NULL, NULL, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(renderer, spritetex, &src_rec, &tex_rec, NULL, NULL, SDL_FLIP_NONE);
 
 
 

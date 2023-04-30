@@ -36,7 +36,7 @@ public:
 	SDL_Rect hitbox;
 	SDL_Rect src_rec;
 
-	int spritenum =0;
+	int spritenum =999;
 
 	test_sdl_inputhandler InputHandler;
 private:

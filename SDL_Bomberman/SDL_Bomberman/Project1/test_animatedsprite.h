@@ -5,6 +5,7 @@ class test_animatedsprite :public test_sprite_exp
 {
 
 public:
+    test_animatedsprite(){};
 	test_animatedsprite(SDL_Renderer*& renderer, const char* filepathforsprite, SDL_Rect originRecTexture, SDL_Rect originRecSrc)
 		:test_sprite_exp(renderer, filepathforsprite, originRecTexture, originRecSrc)
 	{

@@ -122,21 +122,27 @@ void test_gamecore_debug::Init()
 
 
 	spritesToRender.push_back(sprite);
+
+    uMap_AnimatedSpritestoRender.insert_or_assign("Player",sprite);
+
+	//uMap_AnimatedSpritestoRender.insert_or_assign(9,sprite);
+
 	//spritesToRender.push_back(sprite2);
 
-	std::vector<test_sprite_exp> tiles,tiles3;
-
+//	std::vector<test_sprite_exp> tiles,tiles3;
+//
     for(int i = 0; i <= 29; i++)
     {
-        tiles.push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
+        //tiles.push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
+        uMap_TilestoRender.insert_or_assign("Tile_stoneBlock"+ i,test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
         tex_rec.x += 64;
     }
-
+//
     tex_rec.x = 128;
     tex_rec.y=320;
     for(int i = 0; i <= 29; i++)
     {
-        tiles3.push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
+        uMap_TilestoRender.insert_or_assign("Tile_stoneBlockr2"+ i,test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
         tex_rec.x += 64;
     }
 
@@ -159,8 +165,8 @@ void test_gamecore_debug::Init()
 //	//tiles.push_back(sprite6);
 
 
-	TilemapA.tilemap.push_back(tiles);
-    TilemapA.tilemap.push_back(tiles3);
+//	TilemapA.tilemap.push_back(tiles);
+//    TilemapA.tilemap.push_back(tiles3);
 
     std::vector<test_sprite_exp> tiles2;
     block = "/tiles/Blocks/darkStoneBlock.png";
@@ -179,7 +185,7 @@ void test_gamecore_debug::Init()
 
     for(int i = 0; i <= 10; i++)
     {
-        tiles2.push_back(test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
+               uMap_TilestoRender.insert_or_assign("Tile_darkStoneBlock"+ i,test_sprite_exp(renderer, fullpath.c_str(), tex_rec, src_rec));
         tex_rec.y += 64;
     }
 
@@ -231,7 +237,15 @@ void test_gamecore_debug::Init()
 	//}
 
 	InputHandler.Init();
-	spritesToRender[0].InitializeAnimations();
+	//spritesToRender[0].InitializeAnimations();
+	//uMap_AnimatedSpritestoRender[9].UpdateSpriteFrame();
+
+
+	uMap_AnimatedSpritestoRender["Player"].InitializeAnimations();
+
+	//uMap_TilestoRender.insert_or_assign("test",test_sprite_exp(renderer,fullpath.c_str(),tex_rec,src_rec));
+
+    //cout << uMap_TilestoRender["test"].spritenum << endl;
 
 
 
@@ -297,25 +311,32 @@ void test_gamecore_debug::Update()
 				switch (e.key.keysym.sym)
 				{
 				case SDLK_UP:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_UP), true);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_UP), true);
+					uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_UP),true);
 					break;
 				case SDLK_DOWN:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_DOWN), true);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_DOWN), true);
+					uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_DOWN),true);
 					break;
 				case SDLK_LEFT:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_LEFT), true);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_LEFT), true);
+					uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_LEFT),true);
 					break;
 				case SDLK_RIGHT:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_RIGHT), true);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_RIGHT), true);
+                    uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_RIGHT),true);
 					break;
 				case SDLK_SPACE:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_SPACE), true);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_SPACE), true);
+                    uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_SPACE),true);
 					break;
 				case SDLK_f:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_f), true);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_f), true);
+					uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_f),true);
 					break;
 				case SDLK_x:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_x), true);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_x), true);
+					uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_x),true);
 					break;
 				}
 				break;
@@ -323,25 +344,32 @@ void test_gamecore_debug::Update()
 				switch (e.key.keysym.sym)
 				{
 				case SDLK_UP:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_UP), false);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_UP), false);
+                    uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_UP),false);
 					break;
 				case SDLK_DOWN:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_DOWN), false);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_DOWN), false);
+					uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_DOWN),false);
+
 					break;
 				case SDLK_LEFT:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_LEFT), false);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_LEFT), false);
+                    uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_LEFT),false);
 					break;
 				case SDLK_RIGHT:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_RIGHT), false);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_RIGHT), false);
+                    uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_RIGHT),false);
 					break;
 				case SDLK_SPACE:
 					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_SPACE), false);
 					break;
 				case SDLK_f:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_f), false);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_f), false);
+					uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_f),false);
 					break;
 				case SDLK_x:
-					spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_x), false);
+					//spritesToRender[0].Testingupdate(SDL_GetKeyName(SDLK_x), false);
+					uMap_AnimatedSpritestoRender["Player"].Testingupdate(SDL_GetKeyName(SDLK_x),false);
 					break;
 				}
 				break;
@@ -421,10 +449,14 @@ void test_gamecore_debug::Update()
 			Draw();
 		}
 		inputval = "NULL";
-		spritesToRender[0].outputbuttons();
+		//spritesToRender[0].outputbuttons();
 		//spritesToRender[0].MoveSpriteXY(0, 0);
-		spritesToRender[0].UpdateSpriteFrame();
-		spritesToRender[0].UpdateSprite();
+		//spritesToRender[0].UpdateSpriteFrame();
+		//spritesToRender[0].UpdateSprite();
+
+        uMap_AnimatedSpritestoRender["Player"].UpdateSprite();
+        uMap_AnimatedSpritestoRender["Player"].UpdateSpriteFrame();
+
 
 		//spritesToRender[0].UpdateSpriteFrame();
 		//spritesToRender[0].Testingupdate(inputval,keyup);
@@ -463,20 +495,20 @@ void test_gamecore_debug::Draw()
 
 	SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
 
-	SDL_Rect rect2 = { 400,100,500,500 };
-	SDL_Rect rect1 = { 200,100,400,400 };
-
-    SDL_Rect tBrd = { 0,0,500,64 };
-	SDL_Rect rBrd = { 0,648,500,64 };
-    SDL_Rect lBrd = { 0,0,64,500};
-	SDL_Rect bBrd = { 648,0,64,500 };
-
-	std::vector<SDL_Rect> testborders;
-
-	testborders.push_back(tBrd);
-    testborders.push_back(bBrd);
-    testborders.push_back(lBrd);
-    testborders.push_back(rBrd);
+//	SDL_Rect rect2 = { 400,100,500,500 };
+//	SDL_Rect rect1 = { 200,100,400,400 };
+//
+//    SDL_Rect tBrd = { 0,0,500,64 };
+//	SDL_Rect rBrd = { 0,648,500,64 };
+//    SDL_Rect lBrd = { 0,0,64,500};
+//	SDL_Rect bBrd = { 648,0,64,500 };
+//
+//	std::vector<SDL_Rect> testborders;
+//
+//	testborders.push_back(tBrd);
+//    testborders.push_back(bBrd);
+//    testborders.push_back(lBrd);
+//    testborders.push_back(rBrd);
 
 //	SDL_RenderFillRect(renderer, &tBrd);
 //
@@ -487,55 +519,164 @@ void test_gamecore_debug::Draw()
 //
 //
 //	SDL_RenderFillRect(renderer, &lBrd);
-    vector< pair<int,test_sprite_exp> > objtoremove;
-    for(const SDL_Rect  brd : testborders)
+
+
+//    for( std::vector<test_sprite_exp> t : TilemapA.tilemap)
+//    {
+//        //std::cout << "tiles" << std::endl;
+//        for(test_sprite_exp ts : t)
+//        {
+//         ts.DrawSprite(renderer);
+//         uMap_AnimatedSpritestoRender["Player"].DetectCollision(*(ts.GetHitBox()));
+//         //SDL_RenderDrawRect(renderer, ts.GetHitBox());
+//        }
+//    }
+    auto tr_it = uMap_TilestoRender.begin();
+    while(tr_it != uMap_TilestoRender.cend())
     {
-        //dSDL_RenderFillRect(renderer, &brd);
+        //am_it = uMap_AnimatedSpritestoRender[am_it-first];
+        //uMap_AnimatedSpritestoRender[am_it->first].DrawSprite(renderer);
+
+        uMap_TilestoRender[tr_it->first].DrawSprite(renderer);
+        uMap_AnimatedSpritestoRender["Player"].DetectCollision(*(uMap_TilestoRender[tr_it->first].GetHitBox()));
+        tr_it++;
     }
 
-    for( std::vector<test_sprite_exp> t : TilemapA.tilemap)
+
+//    for (auto& ts: uMap_TilestoRender)
+//    {
+//        //uMap_TilestoRender[ts.first].DrawSprite(renderer);
+//        //uMap_AnimatedSpritestoRender["Player"].DetectCollision(*(uMap_TilestoRender[ts.first].GetHitBox()));
+//
+//
+//    }
+
+//    for (auto& ts: uMap_AnimatedSpritestoRender)
+//    {
+//        uMap_AnimatedSpritestoRender[ts.first].DrawSprite(renderer);
+//        //uMap_AnimatedSpritestoRender["Player"].DetectCollision(*(uMap_TilestoRender[ts.first].GetHitBox()));
+//
+//    }
+
+    auto am_it = uMap_AnimatedSpritestoRender.begin();
+    while(am_it != uMap_AnimatedSpritestoRender.cend())
     {
-        //std::cout << "tiles" << std::endl;
-        for(test_sprite_exp ts : t)
+        //am_it = uMap_AnimatedSpritestoRender[am_it-first];
+        uMap_AnimatedSpritestoRender[am_it->first].DrawSprite(renderer);
+        am_it++;
+    }
+
+
+
+
+
+    auto xm_it = uMap_TilestoRender.begin();
+    while(xm_it != uMap_TilestoRender.cend())
+    //for (auto& ts: uMap_TilestoRender)
+    {
+
+     if(uMap_AnimatedSpritestoRender["ExplosionN"].DetectCollision(*uMap_TilestoRender[xm_it->first].GetHitBox()))
+         {
+
+            //cout << ts.first << endl;
+           xm_it = uMap_TilestoRender.erase(xm_it);
+            //cout << objtoremove[0].first << endl;
+
+         }
+
+     if(uMap_AnimatedSpritestoRender["ExplosionS"].DetectCollision(*uMap_TilestoRender[xm_it->first].GetHitBox()))
+         {
+
+            //cout << ts.first << endl;
+           xm_it = uMap_TilestoRender.erase(xm_it);
+            //cout << objtoremove[0].first << endl;
+
+         }
+     if(uMap_AnimatedSpritestoRender["ExplosionW"].DetectCollision(*uMap_TilestoRender[xm_it->first].GetHitBox()))
+         {
+
+            //cout << ts.first << endl;
+           xm_it = uMap_TilestoRender.erase(xm_it);
+            //cout << objtoremove[0].first << endl;
+
+         }
+
+     if(uMap_AnimatedSpritestoRender["ExplosionE"].DetectCollision(*uMap_TilestoRender[xm_it->first].GetHitBox()))
+         {
+
+            //cout << ts.first << endl;
+           xm_it = uMap_TilestoRender.erase(xm_it);
+            //cout << objtoremove[0].first << endl;
+
+         }
+     else
+         {
+            ++xm_it;
+         }
+    }
+
+
+//
+//    for( auto&  ts : Collectables)
+//    {
+//     //  std:: cout << ts.first << endl;
+//      ts.second.DrawSprite(renderer);
+//     //ts.spritenum = i;
+//     //++i;
+//     if(uMap_AnimatedSpritestoRender["Player"].DetectCollision(*ts.second.GetHitBox()))
+//     {
+//
+//        //objtoremove.push_back(ts);
+//        if(Collectables.count(ts.first) == 1)
+//        {
+//            Collectables.erase(ts.first);
+//            cout << ts.first << endl;
+//        }
+//
+//        //cout << objtoremove[0].first << endl;
+//
+//     }
+
+
+        auto pm_it = Collectables.begin();
+        while(pm_it != Collectables.cend())
         {
-         ts.DrawSprite(renderer);
-         spritesToRender[0].DetectCollision(*(ts.GetHitBox()));
-         SDL_RenderDrawRect(renderer, ts.GetHitBox());
+
+            Collectables[pm_it->first].DrawSprite(renderer);
+
+            if(uMap_AnimatedSpritestoRender["Player"].DetectCollision(*Collectables[pm_it->first].GetHitBox()))
+            {
+                pm_it = Collectables.erase(pm_it);
+                //cout << pm_it->first << endl;
+
+            }
+            else
+            {
+                ++pm_it;
+            }
+
+
         }
-    }
 
-    for(auto&  ts : Collectables)
-    {
-     //  std:: cout << ts.first << endl;
-      ts.second.DrawSprite(renderer);
-     //ts.spritenum = i;
-     //++i;
-     if(spritesToRender[0].DetectCollision(*ts.second.GetHitBox()))
-     {
 
-        objtoremove.push_back(ts);
-        cout << ts.first << endl;
-        //cout << objtoremove[0].first << endl;
-
-     }
      //cout <<  ts.second.spritenum << endl;
 
-     for(auto o : objtoremove)
-     {
-        if( !objtoremove.empty())
-        {
-            //Removal works but sometimes causes crashes, most likely trying to remove something too fast.
-            Collectables.erase(o.first);
-            objtoremove.pop_back();
-            std::cout << objtoremove.size()<< endl;
-
-        }
-     }
-
-    }
+//     for(auto o : objtoremove)
+//     {
+//        if( !objtoremove.empty())
+//        {
+//            //Removal works but sometimes causes crashes, most likely trying to remove something too fast.
+//            Collectables.erase(o.first);
+//            objtoremove.pop_back();
+//            std::cout << objtoremove.size()<< endl;
+//
+//        }
 
 
-    if(spritesToRender[0].pressedf)
+
+
+
+    if(uMap_AnimatedSpritestoRender["Player"].pressedf)
     {
         //cout << "F received " << endl;
 
@@ -545,21 +686,26 @@ void test_gamecore_debug::Draw()
         SDL_Rect testrec = {0,0,32,32};
         SDL_Rect testrec2 = {0,0,16,16};
 
-        testrec = spritesToRender[0].tex_rec;
+        testrec = uMap_AnimatedSpritestoRender["Player"].tex_rec;
         //tex_rec.x += 32;
 
         //cout << tex_rec.x << endl;
 
-        spritesToRender.push_back(test_animatedsprite(renderer, fullpath.c_str(), testrec,testrec2 ));
-        spritesToRender[1].InitializeAnimations();
+        //spritesToRender.push_back(test_animatedsprite(renderer, fullpath.c_str(), testrec,testrec2 ));
+        //spritesToRender[1].InitializeAnimations();
+
+        uMap_AnimatedSpritestoRender.insert_or_assign("Bomb",test_animatedsprite(renderer, fullpath.c_str(), testrec, src_rec));
+        uMap_AnimatedSpritestoRender["Bomb"].InitializeAnimations();
+
 
         //cout << fullpath.c_str() << endl;
 
-        spritesToRender[0].pressedf = false;
+        uMap_AnimatedSpritestoRender["Player"].pressedf = false;
     }
 
 
-	SDL_RenderDrawRect(renderer, spritesToRender[0].GetHitBox());
+	//SDL_RenderDrawRect(renderer, spritesToRender[0].GetHitBox());
+	SDL_RenderDrawRect(renderer, uMap_AnimatedSpritestoRender["Player"].GetHitBox());
 	//SDL_RenderDrawRect(renderer, spritesToRender[1].GetHitBox());
 
 	//SDL_bool collision = SDL_HasIntersection(spritesToRender[0].GetHitBox(), spritesToRender[1].GetHitBox());
@@ -574,36 +720,49 @@ void test_gamecore_debug::Draw()
 
 
 
-	spritesToRender[0].DrawSprite(renderer);
-	cout << spritesToRender.size() << endl;
-	if(spritesToRender.size() >= 2 && &spritesToRender[1]!= NULL)
-	{
+	//spritesToRender[0].DrawSprite(renderer);
 
-        spritesToRender[1].DrawSprite(renderer);
-        spritesToRender[1].UpdateBombAni();
-
-        if(spritesToRender[0].pressedx)
-        {
-
-            std::string fullpath = "/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Assets/tiles/Blocks/Flame.png";
-            SDL_Rect arecforfire = {spritesToRender[1].tex_rec.x + 64,spritesToRender[1].tex_rec.y ,36,36};
-            TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
-            arecforfire = {spritesToRender[1].tex_rec.x,spritesToRender[1].tex_rec.y+64 ,36,36};
-            TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
-            arecforfire = {spritesToRender[1].tex_rec.x - 64,spritesToRender[1].tex_rec.y ,36,36};
-            TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
-            arecforfire = {spritesToRender[1].tex_rec.x,spritesToRender[1].tex_rec.y-64 ,36,36};
-            TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
-            //spritesToRender[1].tex_rec = {0,0,0,0};
-            //
-            //spritesToRender.push_back(test_animatedsprite(renderer, fullpath.c_str(), testrec,testrec2 ));
-            //spritesToRender[3].InitializeAnimations();
-            //spritesToRender[3].DrawSprite(renderer);
-        }
+//    uMap_AnimatedSpritestoRender["Player"].DrawSprite(renderer);
+//    uMap_AnimatedSpritestoRender["Bomb"].DrawSprite(renderer);
+    uMap_AnimatedSpritestoRender["Bomb"].UpdateBombAni();
 
 
 
+//	cout << spritesToRender.size() << endl;
+//	if(spritesToRender.size() >= 2 && &spritesToRender[1]!= NULL)
+//	{
+//
+//        spritesToRender[1].DrawSprite(renderer);
+//        spritesToRender[1].UpdateBombAni();
+
+    if(uMap_AnimatedSpritestoRender["Player"].pressedx)
+    {
+
+        std::string fullpath = "/home/patrick/Desktop/C++/SDL_Bomberman/SDL_Bomberman/Assets/tiles/Blocks/Flame.png";
+
+        SDL_Rect arecforfire = {uMap_AnimatedSpritestoRender["Bomb"].tex_rec.x + 64,uMap_AnimatedSpritestoRender["Bomb"].tex_rec.y ,36,36};
+        uMap_AnimatedSpritestoRender.insert_or_assign("ExplosionN",test_animatedsprite(renderer, fullpath.c_str(), arecforfire, uMap_AnimatedSpritestoRender["Bomb"].src_rec));
+
+        //TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
+        arecforfire = {uMap_AnimatedSpritestoRender["Bomb"].tex_rec.x,uMap_AnimatedSpritestoRender["Bomb"].tex_rec.y+64 ,36,36};
+        uMap_AnimatedSpritestoRender.insert_or_assign("ExplosionS",test_animatedsprite(renderer, fullpath.c_str(), arecforfire,  uMap_AnimatedSpritestoRender["Bomb"].src_rec));
+
+        //TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
+        arecforfire = {uMap_AnimatedSpritestoRender["Bomb"].tex_rec.x - 64,uMap_AnimatedSpritestoRender["Bomb"].tex_rec.y ,36,36};
+        uMap_AnimatedSpritestoRender.insert_or_assign("ExplosionE",test_animatedsprite(renderer, fullpath.c_str(), arecforfire,  uMap_AnimatedSpritestoRender["Bomb"].src_rec));
+
+        //TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
+        arecforfire = {uMap_AnimatedSpritestoRender["Bomb"].tex_rec.x,uMap_AnimatedSpritestoRender["Bomb"].tex_rec.y-64 ,36,36};
+        uMap_AnimatedSpritestoRender.insert_or_assign("ExplosionW",test_animatedsprite(renderer, fullpath.c_str(), arecforfire,  uMap_AnimatedSpritestoRender["Bomb"].src_rec));
+
+        //TilemapA.tilemap[0].push_back(test_sprite_exp(renderer, fullpath.c_str(), arecforfire,  spritesToRender[1].src_rec));
+        //spritesToRender[1].tex_rec = {0,0,0,0};
+        //
+        //spritesToRender.push_back(test_animatedsprite(renderer, fullpath.c_str(), testrec,testrec2 ));
+        //spritesToRender[3].InitializeAnimations();
+        //spritesToRender[3].DrawSprite(renderer);
     }
+
 
 
 

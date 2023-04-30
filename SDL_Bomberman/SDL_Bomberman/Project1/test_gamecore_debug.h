@@ -39,6 +39,9 @@ private:
 	test_tilemap TilemapB; //collectables;
 
     std::unordered_map<int,test_sprite_exp> Collectables;
+    std::unordered_map<std::string,test_animatedsprite> uMap_AnimatedSpritestoRender;
+    std::unordered_map<std::string,test_sprite_exp> uMap_TilestoRender;
+
 
 	test_sdl_inputhandler InputHandler;
 

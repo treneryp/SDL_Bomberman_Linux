@@ -2,19 +2,47 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="SDL_Bomberman/Project1/main.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="272" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="SDL_Bomberman/Project1/test_gamecore_debug.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16922" topLine="707" />
+		</Cursor>
+		<Folding>
+			<Collapse line="629" />
+		</Folding>
+	</File>
+	<File name="SDL_Bomberman/Project1/test_sprite_exp.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="811" topLine="44" />
+		</Cursor>
+	</File>
 	<File name="SDL_Bomberman/Project1/test_sdl_inputhandler.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="152" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="SDL_Bomberman/Project1/test_animatedsprite.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="SDL_Bomberman/Project1/test_sdl_inputhandler.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1153" topLine="2" />
+			<Cursor1 position="0" topLine="46" />
 		</Cursor>
 	</File>
-	<File name="SDL_Bomberman/Project1/test_gamecore_debug.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="SDL_Bomberman/Project1/test_sprite_exp.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="12666" topLine="528" />
+			<Cursor1 position="967" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="SDL_Bomberman/Project1/test_animatedsprite.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="444" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="SDL_Bomberman/Project1/test_gamecore_debug.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="894" topLine="15" />
 		</Cursor>
 	</File>
 	<File name="SDL_Bomberman/Project1/test_sprite_inhe.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -22,29 +50,9 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="SDL_Bomberman/Project1/test_sprite_exp.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="SDL_Bomberman/Project1/test_animatedsprite.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1507" topLine="244" />
-		</Cursor>
-	</File>
-	<File name="SDL_Bomberman/Project1/test_sprite_exp.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="864" topLine="22" />
-		</Cursor>
-	</File>
-	<File name="SDL_Bomberman/Project1/test_animatedsprite.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7391" topLine="255" />
-		</Cursor>
-	</File>
-	<File name="SDL_Bomberman/Project1/main.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="381" topLine="5" />
-		</Cursor>
-	</File>
-	<File name="SDL_Bomberman/Project1/test_gamecore_debug.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="692" topLine="14" />
+			<Cursor1 position="186" topLine="257" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
